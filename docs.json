@@ -7,7 +7,7 @@
     "light": "#3b82f6",
     "dark": "#1d4ed8"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.ico",
   "appearance": {
     "default": "light"
   },
@@ -43,8 +43,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
