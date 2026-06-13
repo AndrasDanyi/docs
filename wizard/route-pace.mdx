@@ -1,0 +1,65 @@
+---
+title: 'Route & Pace'
+description: 'Pick a route, set a target finish time, and tune per-segment effort. The first step of the plan wizard.'
+---
+
+This is the foundation of the plan — everything that comes after (checkpoints, gear, fuel, drop bags, tasks) is built around the route and pace you set here.
+
+## Pick a route
+
+Three options at the top of the step:
+
+<CardGroup cols={3}>
+  <Card title="Saved route" icon="map">
+    Pick from routes in your library — the most common path.
+  </Card>
+  <Card title="Upload GPX" icon="upload">
+    Drop a `.gpx` file. The planner imports the route inline.
+  </Card>
+  <Card title="Draw route" icon="pencil">
+    Plot waypoints on the map. Snaps to trails and roads.
+  </Card>
+</CardGroup>
+
+See [Your first route](/get-started/first-route) for the full mechanics of each.
+
+## Target finish time
+
+Two ways to set it:
+
+- **Type the time directly** — `12:00:00` for a 12-hour goal.
+- **Pick from suggestions** — the planner offers conservative, realistic, and ambitious targets based on the route's distance and elevation. Useful when you don't have a strong opinion yet.
+
+The target propagates to every later step: fueling rates per hour, gear logistics that depend on when you hit each checkpoint, cutoff risk flags on the checkpoints step.
+
+## Pacing strategy
+
+Pick how effort is distributed across the race:
+
+- **Even** — same effort throughout. Safe default.
+- **Negative split** — easier early, harder late. Classic ultra strategy.
+- **Front-loaded** — harder early, easier late. Useful for races where you want a buffer against cutoffs.
+
+You can override the strategy per segment from the checkpoints step if a single strategy doesn't fit the whole course.
+
+## Segment effort dials
+
+For each segment, three sliders adjust effort relative to your overall strategy:
+
+- **Uphill effort** — how hard you push on climbs.
+- **Downhill effort** — how hard you push on descents.
+- **Flat effort** — how hard you push on runnable flats.
+
+The planner converts these into per-segment splits and shows the resulting paces. If the split feels wrong (too fast on a technical descent, for example), pull the slider back.
+
+## What you'll see
+
+A timetable of segments with predicted splits, cumulative time at each checkpoint, and total finish time. If a cutoff is at risk, the planner flags it with a warning.
+
+<Tip>
+  Don't over-tune segment effort on your first pass. Lock in route + target finish + overall strategy, then look at the timetable. Only adjust segments if a specific split looks unrealistic.
+</Tip>
+
+## Next
+
+Once route and pace are set, move to [Checkpoints & Segments](/wizard/checkpoints) to tune the checkpoints your plan revolves around.

@@ -1,0 +1,57 @@
+---
+title: 'Checkpoints & Segments'
+description: 'Tune the checkpoints that came with your route, add new ones, and set segment boundaries that drive pacing and fueling.'
+---
+
+This step uses the checkpoints you already marked on the route (see [Checkpoints](/routes/checkpoints) for the route-level docs) and lets you add plan-specific tuning on top.
+
+## What's already here
+
+The checkpoints carry over from the route — names, types, locations, and any aid-station info you set when building the route. You don't need to redo them.
+
+What you'll add at the plan level: per-checkpoint details that only matter for *this* race-day strategy.
+
+## Cutoff times
+
+Set the absolute time of day you need to be through each checkpoint by. For multi-day races, include the day offset.
+
+The planner cross-checks cutoffs against your target finish time:
+
+- **Green checkpoint** — you'll arrive comfortably before the cutoff.
+- **Yellow** — cutting it close. Consider front-loading effort earlier.
+- **Red** — cutoff isn't reachable at your current pace. Either set a more aggressive target or accept the risk.
+
+## Segment boundaries
+
+A **segment** is the stretch between two adjacent checkpoints (or between the start and the first checkpoint, or between the last checkpoint and the finish). Segments are how pacing and fueling are organized — each segment can have its own effort dials, pace, and fueling rate.
+
+If your route's checkpoints don't divide the course cleanly enough for planning, add intermediate **segment boundary** checkpoints — they don't have to be aid stations, just useful pacing milestones (top of a climb, end of a technical section, halfway).
+
+## Aid-station offerings
+
+If the checkpoint is an aid station, confirm what's actually available — water, sports drink, gels, bars, real food, salt tabs.
+
+The Fuel step uses this to decide what you need to carry between aid stations. If you mark "real food at km 50" but it turns out the aid only has gels, you'll show up under-fueled.
+
+<Warning>
+  Only fill in what's confirmed. Empty offerings are safer than wrong ones — running out of expected fuel mid-segment is how races blow up.
+</Warning>
+
+## Drop bag and crew access
+
+Two flags per checkpoint:
+
+- **Drop bag access** — you've placed a drop bag here. The Dropbags step lists this checkpoint as a destination.
+- **Crew access** — your crew can meet you here. Affects what they can hand you (real food, dry clothes, charged batteries).
+
+These flags don't change the planner's behavior automatically — they just make the right checkpoints available in later steps.
+
+## Per-checkpoint notes
+
+Anything you want to remember for race day — "watch for marker change", "trail forks left here", "rocky descent next km".
+
+Notes show up on the mobile app on race day as you approach each checkpoint. Use them for the things you'd put on your wrist tape.
+
+## Next
+
+After checkpoints are tuned, move to [Gear](/wizard/gear) to decide what you carry and what you swap at each stop.

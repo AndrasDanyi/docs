@@ -36,7 +36,12 @@
       {
         "group": "Plans",
         "pages": [
-          "plans/overview"
+          "plans/overview",
+          "wizard/route-pace",
+          "wizard/checkpoints",
+          "wizard/gear",
+          "wizard/fuel",
+          "wizard/dropbags-tasks"
         ]
       },
       {
