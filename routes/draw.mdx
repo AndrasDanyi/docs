@@ -1,0 +1,55 @@
+---
+title: 'Draw a route'
+description: 'Plot waypoints on the map to create a custom route. The line snaps to trails and roads between waypoints.'
+---
+
+Drawing a route is the fastest way to capture a course that doesn't have a GPX yet — a local long run, a planned recon route, or a brand-new race you're designing.
+
+## How drawing works
+
+You click to drop **waypoints**. Each waypoint is an anchor on the map. The **line between waypoints** is computed automatically — it snaps to the underlying trail and road network so you don't have to trace every twist manually.
+
+That means:
+
+- **Close waypoints = more control.** Drop one every few hundred meters on a technical section to get the exact line you want.
+- **Far waypoints = let the network do the work.** On a straightforward stretch of trail, a single waypoint at each end is enough.
+
+## Start drawing
+
+<Steps>
+  <Step title="Open the Routes page → Create Route → Draw Route">
+    The map opens centered on a default location. Drag to where you want to start.
+  </Step>
+  <Step title="Click to drop your first waypoint">
+    This is the start of your route.
+  </Step>
+  <Step title="Click again to extend the line">
+    The route follows the trail/road network between your last waypoint and the new one. Continue clicking to build out the full course.
+  </Step>
+  <Step title="Save when done">
+    Click **Save**, give the route a name. It lands in your library.
+  </Step>
+</Steps>
+
+## Editing while drawing
+
+- **Drag a waypoint** to move it. The line recalculates.
+- **Click on the line between two waypoints** to insert a new waypoint there.
+- **Right-click a waypoint** (or long-press on touch) to delete it.
+- **Undo / Redo** with the toolbar buttons or `Cmd+Z` / `Cmd+Shift+Z`.
+
+## Snap can sometimes be wrong
+
+The routing network doesn't always know about every trail, especially in remote areas or on new trails. When the line goes somewhere unexpected:
+
+- **Drop more waypoints** along the section to force the line where you want it.
+- **Switch the map style** (top-right) — some styles show trails the others don't, which helps you place waypoints accurately.
+- **Accept a near-miss** for unmapped sections. You can fix it once a GPX of the actual run exists.
+
+## Then customize
+
+Once saved, [add checkpoints](/routes/checkpoints), tweak the route appearance from the design panel, or [share the route](/routes/share) with other runners.
+
+## Why not just upload a GPX?
+
+You absolutely should, when you have one. Drawing is for the cases where you don't — designing a new race, planning a recon route, or capturing a long run you haven't done yet. Once you've run it, export the GPX from your watch and [upload that instead](/routes/upload-gpx) for full point-by-point fidelity.

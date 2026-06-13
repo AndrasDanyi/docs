@@ -1,0 +1,62 @@
+---
+title: 'Upload a GPX'
+description: 'Pull a route in from any GPX-compatible source — Strava, Coros, Garmin, the race website, or a friend.'
+---
+
+GPX is the universal format for routes and tracks. If your source can export `.gpx`, Absurd Running can read it.
+
+## What gets imported
+
+From the GPX file we read:
+
+- The **track** — every point along the line, including elevation per point.
+- The **waypoints** — if the file has named waypoints, they come in as candidate checkpoints (you confirm or rename each one).
+- The route **name** — used as the default name for the route in your library. You can rename later.
+
+We don't import course metadata that isn't in the GPX file (cutoff times, aid-station details, drop bag flags) — you'll add those yourself on the Routes page after the upload.
+
+## Where to get a GPX
+
+<CardGroup cols={2}>
+  <Card title="Strava" icon="strava">
+    Open the activity → three-dot menu → **Export GPX**.
+  </Card>
+  <Card title="Coros / Garmin" icon="watch">
+    Export from the watch's web portal — usually under the activity's share or export menu.
+  </Card>
+  <Card title="Race website" icon="globe">
+    Many race organizers post a `.gpx` on the course or info page. Look for "download GPX" or "course file."
+  </Card>
+  <Card title="From a friend" icon="user">
+    Anyone who's run the course can export from their watch and send you the file.
+  </Card>
+</CardGroup>
+
+## Upload it
+
+<Steps>
+  <Step title="Open the Routes page">
+    Sign in, click **Routes** in the sidebar.
+  </Step>
+  <Step title="Click 'Create Route' → 'Upload GPX'">
+    A file picker opens. Pick the `.gpx` file from your computer, or drag it directly onto the page.
+  </Step>
+  <Step title="Wait for parsing">
+    Distance, elevation gain, and the route line are extracted in a few seconds. Larger files (multi-day adventures with thousands of points) can take longer.
+  </Step>
+  <Step title="Verify and rename">
+    The route opens in the editor. Check the distance and elevation match what you expect. Rename if needed.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+**The file won't parse.** Open the `.gpx` in a text editor. The first line should be `<?xml version="1.0" ... ?>` and you should see `<trkpt>` or `<rtept>` tags inside. If not, the export probably failed at the source — try re-exporting.
+
+**Elevation looks wrong.** Some GPX exports omit elevation entirely. Routes without elevation data will show 0m gain. Re-export from a source that includes elevation (most watches do).
+
+**Distance is way off.** Usually a sign that the GPX contains multiple segments or a return-trip that was treated as the route. Trim the file at the source if you can.
+
+## Next
+
+Once the route is in your library, [add or refine its checkpoints](/routes/checkpoints), then [build a plan](/get-started/first-plan) around it.

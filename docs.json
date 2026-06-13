@@ -25,7 +25,12 @@
       {
         "group": "Routes",
         "pages": [
-          "routes/overview"
+          "routes/overview",
+          "routes/upload-gpx",
+          "routes/draw",
+          "routes/import",
+          "routes/checkpoints",
+          "routes/share"
         ]
       },
       {
