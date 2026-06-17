@@ -1,65 +1,143 @@
 ---
 title: 'Route & Pace'
-description: 'Pick a route, set a target finish time, and tune per-segment effort. The first step of the plan wizard.'
+description: 'Confirm the course, set a goal finish time, and tune how effort is distributed across terrain. The first step of the plan wizard.'
 ---
 
-This is the foundation of the plan — everything that comes after (checkpoints, gear, fuel, drop bags, tasks) is built around the route and pace you set here.
+The first step of the planner. You confirm the course you're racing, set a goal finish time, and tune how your effort is distributed across the course. Everything that comes after — checkpoints, gear, fuel, drop bags, tasks — is computed against the route and pace you set here.
 
-## Pick a route
+## Pick your route
 
-Three options at the top of the step:
+Three ways to start:
 
-<CardGroup cols={3}>
-  <Card title="Saved route" icon="map">
-    Pick from routes in your library — the most common path.
-  </Card>
-  <Card title="Upload GPX" icon="upload">
-    Drop a `.gpx` file. The planner imports the route inline.
-  </Card>
-  <Card title="Draw route" icon="pencil">
-    Plot waypoints on the map. Snaps to trails and roads.
-  </Card>
-</CardGroup>
+- **Pick a race preset** — UTMB 2025, TransGranCanaria 2026, Berlin Marathon 2025, Spartathlon 2025, or **Custom Route**. Presets come with the route line, elevation profile, and (when available) checkpoints already populated.
+- **Load a saved route** — anything you've already added to [your Routes library](/routes/overview).
+- **Upload a fresh GPX file** — for a course not yet in your library. The file is parsed inline; you don't have to save it as a Route first.
 
-See [Your first route](/get-started/first-route) for the full mechanics of each.
+The route you pick here determines distance, elevation, and the starting set of checkpoints carried into the next step.
 
-## Target finish time
+## Route type and laps
 
-Two ways to set it:
+Tell the planner the course shape:
 
-- **Type the time directly** — `12:00:00` for a 12-hour goal.
-- **Pick from suggestions** — the planner offers conservative, realistic, and ambitious targets based on the route's distance and elevation. Useful when you don't have a strong opinion yet.
+- **Loop** — start and finish at the same point.
+- **Point-to-point** — different start and finish.
+- **Out & back** — out, turn around, back along the same line.
 
-The target propagates to every later step: fueling rates per hour, gear logistics that depend on when you hit each checkpoint, cutoff risk flags on the checkpoints step.
+For **Loop** and **Out & back** routes, a **Number of laps** field appears. The total distance and elevation are multiplied accordingly.
+
+## Plan name, race date, start time
+
+Three optional fields that earn their keep later in the wizard:
+
+- **Plan name** — shows up in your Plans library. Something like *"Race name — A goal"* helps you tell sibling plans apart (an A-goal and B-goal pace for the same race).
+- **Race date** — required if you want weather-aware fueling in [step 4](/wizard/fuel) (the planner fetches forecast data for that date).
+- **Start time** — the wall-clock time you cross the start line. Combined with the goal finish time, it populates time-of-day estimates at each checkpoint (useful for crew handovers and cutoffs).
+
+## Distance and elevation
+
+If you loaded a route from a preset, saved route, or GPX, these fields are **autofilled and locked** — they reflect what's actually in the route data.
+
+If you started with a custom route (or no route at all), the fields are editable. Useful when you want to draft pacing for a race you haven't routed yet.
+
+## Goal finish time
+
+The most important number you set in this step. Three inputs describe the same thing and stay synced:
+
+- **Goal finish time** — total elapsed time, e.g. `12:00:00`.
+- **Average pace** — per-kilometre or per-mile pace.
+- **Average GAP** — *Grade-Adjusted Pace*. The pace you'd hold on flat ground given the effort you're spending on hills.
+
+Changing any one updates the other two. Pick whichever your brain works in — most ultra runners think in finish time and average pace; trained mountain runners think in GAP.
+
+<Tip>
+  **Why GAP matters.** On a mountain course, you can't run "8:00/km" the whole way — climbs slow you down at the same effort. GAP describes effort, not realised pace. If your GAP is 6:30/km on a hilly 50k, you're holding road-marathon effort across the day. Useful sanity check on whether your goal is honest.
+</Tip>
 
 ## Pacing strategy
 
-Pick how effort is distributed across the race:
+A single slider that controls how your effort is distributed across the race:
 
-- **Even** — same effort throughout. Safe default.
-- **Negative split** — easier early, harder late. Classic ultra strategy.
-- **Front-loaded** — harder early, easier late. Useful for races where you want a buffer against cutoffs.
+- **Positive split** (slider left) — faster early, slower late. Common when you're racing for a cutoff or want a buffer.
+- **Even** (slider centre) — same effort throughout.
+- **Negative split** (slider right) — slower early, faster late. The textbook ultra strategy when you have it in you.
 
-You can override the strategy per segment from the checkpoints step if a single strategy doesn't fit the whole course.
+The slider is continuous, not three discrete settings — set it wherever you actually plan to race. The projected splits in the right pane update as you slide.
 
-## Segment effort dials
+## Effort dials
 
-For each segment, three sliders adjust effort relative to your overall strategy:
+Three sliders that fine-tune how hard you push on different terrain:
 
-- **Uphill effort** — how hard you push on climbs.
-- **Downhill effort** — how hard you push on descents.
-- **Flat effort** — how hard you push on runnable flats.
+- **Flat effort** — easier ↔ harder
+- **Uphill effort** — easier ↔ harder
+- **Downhill effort** — easier ↔ harder
 
-The planner converts these into per-segment splits and shows the resulting paces. If the split feels wrong (too fast on a technical descent, for example), pull the slider back.
+All three default to centre (neutral). Slide right to push harder; left to ease off. Useful when your strengths aren't symmetric — *"I run downhill aggressively (slide right) but power-hike most climbs (slide left)"* produces realistic splits without setting per-segment pace by hand.
 
-## What you'll see
+The effort dials work *with* the pacing strategy. The strategy sets the overall arc; the effort dials shape how that arc is realised across terrain.
 
-A timetable of segments with predicted splits, cumulative time at each checkpoint, and total finish time. If a cutoff is at risk, the planner flags it with a warning.
+---
 
-<Tip>
-  Don't over-tune segment effort on your first pass. Lock in route + target finish + overall strategy, then look at the timetable. Only adjust segments if a specific split looks unrealistic.
-</Tip>
+## Reading the right pane
+
+As you fill in the left, the right pane shows what the planner has computed. Three things to know how to read.
+
+### The map view
+
+The full route line with checkpoint markers and segment boundaries overlaid. Hovering a marker on the map highlights the matching row in the splits table; clicking it scrolls and selects.
+
+Marker style varies by checkpoint type — aid stations look different from segment boundaries, big aid stations from regular ones. You control the styling in the Routes editor or in [step 2 (Checkpoints & Segments)](/wizard/checkpoints).
+
+### The elevation profile
+
+Altitude vs. distance, with vertical lines marking each checkpoint. The vertical scale auto-fits the route — flat road races compress, mountain ultras expand.
+
+Quick reading: any vertical jump bigger than the previous segments shows where the climbs are. Cross-reference with the splits table to see projected times at the bottom and top of each climb.
+
+### Projected splits
+
+The most-read table on this step. Each row is a slice of the course; columns are distance, elevation, projected segment time, cumulative time, and pace.
+
+**The split interval selector** at the top of the table controls the row size:
+
+- **Every 1 km** — fine-grained. Use this when tuning effort dials on a specific section.
+- **Every 5 km** — middle ground. Default for most ultra distances.
+- **Every 10 km** — high level. Useful for long road races.
+
+Hover a row to highlight the matching position on the map and elevation profile.
+
+The total time at the bottom of the table is your projected finish — should match the goal finish time you set. If it doesn't, your strategy and effort dials don't add up to the goal you typed in.
+
+---
+
+## Tuning loop
+
+This step rewards iteration. The right pane updates live, so the workflow is:
+
+1. Set the goal finish, strategy, and effort dials based on what you *want*.
+2. Read the projected splits.
+3. Adjust effort dials when a segment's projected pace looks wrong.
+4. Re-read.
+
+Two specific cases worth knowing.
+
+### A segment's projected pace looks too fast or too slow
+
+The effort dials are the right tool. If the projection says you'll run a particular climb at a pace you know you can't hold, drop the **uphill effort** dial a notch. If the projection has absurdly slow descents because the default is conservative, push **downhill effort** right.
+
+You don't need to land on the exact number — move the slider until the projected pace matches what you'd actually run.
+
+### The total projected time doesn't match the goal you set
+
+Means your goal finish, strategy, and effort dials are inconsistent. Three ways to resolve:
+
+- **Reset the effort dials to centre** if you've been over-tuning. Lock in a reasonable goal first, then tune from neutral.
+- **Adjust the goal finish time down** if your dials are realistic and the projection comes in faster than you typed.
+- **Set a more aggressive goal finish time** if the projection comes in slower and you're willing to push harder than your dials suggest.
+
+The goal finish time field overrides everything else — set it as your race anchor, then describe the *racing* with the dials.
+
+---
 
 ## Next
 
-Once route and pace are set, move to [Checkpoints & Segments](/wizard/checkpoints) to tune the checkpoints your plan revolves around.
+When the projected splits look honest, move to **[Checkpoints & Segments](/wizard/checkpoints)** to tune the route's checkpoints and divide the course into segments for fueling and gear planning.
