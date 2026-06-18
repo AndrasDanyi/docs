@@ -1,61 +1,86 @@
 ---
 title: 'Fuel'
-description: 'Plan calories, carbs, hydration, and electrolytes over the course. Per-segment targets and per-checkpoint refills.'
+description: 'Plan carbs, fluids, sodium, calories, and caffeine over the course. Two halves: Fueling Targets and Fueling Strategy.'
 ---
 
-Fueling well is the difference between a finish and a DNF in most ultras. This step turns abstract goals ("I want to eat 250 cal/hr") into a concrete plan ("at km 32 I'll grab two gels and refill both flasks").
+Fueling well is the difference between a finish and a DNF in most ultras. The Fuel step turns abstract goals ("I want to eat 75 g/h of carbs") into a concrete plan ("1 Maurten gel every 45 minutes from start to finish") that the mobile app fires as reminders on race day.
 
-## Targets
+The step has two halves: **Fueling Targets** (the hourly numbers, scaled for conditions and effort) and **Fueling Strategy** (the actual rules and items that deliver them). Iterate between the two: set targets, plan rules, check whether actuals match, refine.
 
-Four sliders set your per-hour intake targets:
+## Fueling Targets
 
-- **Calories per hour** — typical ultra range is 200–400 cal/hr.
-- **Carbohydrates per hour** — 60–100g for trained guts.
-- **Fluid per hour** — 400–800ml depending on conditions and sweat rate.
-- **Sodium per hour** — 300–800mg, higher for hot conditions.
+### Weather
 
-The defaults are conservative for ultra distance and assume an average runner. If you've trained your gut to higher carbs (90+ g/hr), pull the sliders up.
+Conditions you expect on race day. Drives sweat-rate scaling, fluid + sodium targets, and per-segment temperature-adjusted intake.
 
-## Strategy
+- **Constant Weather** — manual pick from a temperature band (cold / cool / mild / warm / hot / very hot). Use when no forecast is available or when you want a fixed worst-case scenario.
+- **Weather Forecast** — pulls the actual hour-by-hour forecast for the race date set in Plan Details. Feeds segment-by-segment temperatures across the day.
 
-How intake is distributed across the race:
+### Body Metrics
 
-- **Even** — same targets throughout. Safe default.
-- **Front-load** — higher intake early, taper later. Useful for races where late-stage stomach issues are likely.
-- **Taper** — lower early, ramp later. Less common; useful for races with an easier opening.
+Per-runner inputs that scale the targets:
 
-Per-segment overrides let you tighten or loosen targets on specific stretches — hot exposed segments need more fluid, technical climbs need fewer gels because you can't open them while scrambling.
+- **Body weight** — drives the per-kg components of carb and fluid targets.
+- **Sweat rate** — litres of fluid lost per hour at race effort. Default ~1 L/h mild, up to 1.4 L/h hot. Scales with the Weather temperature band.
+- **Sweat sodium concentration** — milligrams per litre. Default ~800 mg/L; salty sweaters run 1,200+ mg/L.
+- **GI tolerance** — bounds the carbs-per-hour ceiling. Trained guts can push past 90 g/h; untrained stomachs cap closer to 60.
 
-## Per-segment plan
+Defaults come from your [Plan Defaults](/get-started/first-plan#settings). Override per plan when conditions or your race form demand it.
 
-For each segment, the planner shows:
+### Fueling Targets (the hourly numbers)
 
-- **Time to next checkpoint** — based on your pace plan.
-- **What you need** — calories, carbs, fluid, sodium for that segment.
-- **What you carry** — the planner adds up gel/bar/drink mix counts based on your targets.
-- **What you grab at the next aid station** — refills and restock for the segment after.
+The headline values, derived from Weather + Body Metrics:
 
-The numbers cross-check against the [Gear](/wizard/gear) step's carry capacity. If a segment needs more fluid than you can hold, the planner flags it.
+- **Carbs per hour** — 60–100 g/h for ultra distance with a trained gut.
+- **Fluid per hour** — 400–800 ml depending on conditions and sweat rate.
+- **Sodium per hour** — 300–800 mg, higher for hot conditions and salty sweaters.
+- **Calories per hour** — 200–400 cal/h.
+- **Caffeine per hour** — optional, capped at safe daily totals.
 
-## Per-checkpoint refills
+### Segment Targets
 
-For each aid-station checkpoint, plan what you'll do:
+Per-segment adjustments based on the route's terrain and the weather forecast. Hot exposed segments need more fluid; technical climbs need fewer gels because you can't open them while scrambling. The planner suggests adjustments automatically, and you can tweak each segment's targets manually.
 
-- **Refill flasks** — how much, what mix.
-- **Grab food** — gels, bars, real food (only what the [route checkpoints](/routes/checkpoints) say is actually available).
-- **Pack snacks** — what goes into your vest for the next segment.
+## Fueling Strategy
 
-The mobile app shows this as a checklist on race day. Tap each item as you complete it so you don't forget the salt tabs while you're fumbling with your flask.
+The execution half. Targets tell you *what* you need; Strategy is *how* you'll deliver it.
 
-## Fueling rules
+The chart shows every planned intake along the course distance. Below it, a list lets you add and edit rules and items. A totals row compares your actuals against the targets so you can spot under- or over-shoot at a glance.
 
-For long races, set if-then rules that fire automatically based on conditions:
+### Fuel Rules vs. Fuel Items
 
-- *If* hours into the race ≥ 8, *then* switch from gels to real food.
-- *If* segment is hot (>25°C), *then* add 200ml fluid.
-- *If* climbing, *then* slow carb intake to avoid GI distress.
+- **Fuel Rule** — a REPEATING intake. Same item, same schedule across a window. "1 gel every 45 minutes from start to finish" → ~16 reminders across a 12-hour race.
+- **Fuel Item** — a ONE-OFF intake. Single scheduled event, no repeat. "100 mg caffeine pill at minute 360" → one reminder when fatigue is about to bite.
 
-Rules show up as reminders in the mobile app as conditions trigger.
+### Configuring a rule
+
+- **Frequency** — every (recurring), at (single trigger), or at every checkpoint.
+- **Measure type** — time (every 45 min), distance (every 5 km), or checkpoint (at every aid station that offers gels).
+- **From / To** — bound the rule to a window. Useful for starting fueling later (let your stomach settle), stopping earlier (last 30 min before finish), or restricting to a specific segment.
+- **Consume with (chaser)** — optional companion item. Take a gel with 200 ml of water; salt cap with 250 ml fluid. The mobile app surfaces both in one reminder.
+- **Portion size / Split mode** — log fractions (½ bar) or spread a dose evenly through a window (a sandwich in 4 bites across km 60–80).
+
+### Per-segment actuals vs. targets
+
+Each segment shows its own actual totals from your rules + items compared against Segment Targets. Green = on plan; red = under or over for that segment. Click a flagged segment to jump to its per-segment view and refine.
+
+### Checkpoint refill suggestions
+
+When a checkpoint has matching offerings (water, cola, gels) declared on the [route checkpoints](/routes/checkpoints), the planner suggests refills there instead of asking you to carry everything from the start. Refills surface inline with your rules — they're not a separate editor, just a recommendation you can accept by adding the matching rule.
+
+### The iteration loop
+
+Targets → Rules + Items → Actuals → compare → adjust. Most plans take 2–3 passes:
+
+1. Set a coarse rule ("1 gel every 45 min").
+2. Read actuals — say carbs come in at 50 g/h against a 75 g/h target.
+3. Layer items into the gaps ("Cola at every aid station").
+4. Re-read; actuals land around 70 g/h.
+5. Bump gel quantity to 1.5 → on target.
+
+## What becomes a mobile-app reminder
+
+Every rule and every item turns into a scheduled notification on race day. Each reminder shows the item, quantity, and any chaser. Acting on it marks it consumed; ignoring it logs a miss. The actuals you tuned against in Fueling Strategy are exactly what gets delivered.
 
 <Tip>
   Don't go above your trained intake on race day. The plan is only as good as what your gut can handle — test the targets on long training runs first.
